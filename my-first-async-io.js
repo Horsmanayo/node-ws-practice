@@ -1,12 +1,12 @@
-const { readFile } = require('fs')
+const { readFile, read } = require('fs')
 const process = require('process')
 
 
-readFile(process.argv, 'utf8', (err, res) => {
+readFile(process.argv[2], (err, result) => {
     if(err){
         err;
     }
-    const data = res
-    const lines = data.toString().split('\n').length
+    const lines = (result.toString().split('\n').length) -1
+
     console.log(lines);
 })
